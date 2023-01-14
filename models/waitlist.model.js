@@ -14,8 +14,8 @@ const UserSchema = new mongoose.Schema(
           type: String
         }
 	},
-	{ timestamps: true, collection: 'leads'},
+	{ timestamps: true, collection: 'waitlist'},
 );
 
 //init model
-module.exports = mongoose.model('Leads', UserSchema)
+module.exports = mongoose.model('Waitlist', UserSchema)
