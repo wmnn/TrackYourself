@@ -38,7 +38,7 @@ function MapWeights() {
       }
     
   return (
-    <div>
+    <div className='text-white'>
 
       {userContext ? userContext.weights.length > 0 ? <div>
             <div className='flex justify-around'>

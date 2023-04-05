@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import Popup from '../components/Popup';
+import Popup from '../../components/Popup';
 import { useRouter } from "next/router";
+import Link from 'next/link'
 
 
 
@@ -69,14 +70,25 @@ function Registrieren() {
         {notCreatable === true ? <Popup setEmailSend={setNotCreatable} cbFunction={() => {setNotCreatable((prev) => !prev);}} data="Dieser Nutzer lässt sich nicht erstellen." /> : ""}
 
         
-        <div className='#18181b w-[80%] h-[80%] md:w-[60%] rounded-xl border-[1px] border-[rgb(255,255,255)] shadow-[0_1px_60px_-15px_rgba(255,255,255,0.6)] flex justify-center items-center'>
+        <div className='bg-white w-[80%] h-[60%] md:w-[60%] rounded-xl shadow-xl flex flex-col justify-around items-center'>
+          <h1 className='font-medium text-shadow-xl text-2xl'>Account erstellen</h1> 
+          
           <form className="form flex flex-col" action="/register" method="POST">
-                  
-            <input onChange={handleChange} name="email" placeholder='Your Email' value={email} className="text-black rounded w-40"></input>
-            <input onChange={handleChange} type="password" name="password" placeholder='Your Password' value={password} className="text-black rounded mt-2 w-40"></input>
-            <button onClick={handleSubmit} className="mt-4 border-[1px] rounded mytransition transition"><p className='gradient p-2'>Register</p></button>
+            <input onChange={handleChange} name="email" placeholder='Deine Email' value={email} className=" rounded w-60 shadow-lg p-2 border-[1px] border-stone-200"></input>
+            <input onChange={handleChange} type="password" name="password" placeholder='Dein Password' value={password} className="rounded mt-2 w-60 shadow-xl border-[1px] border-stone-200 p-2"></input>
+            <div onClick={handleSubmit} className="bg-slate-800 mt-4 border-[1px] rounded hover:cursor-pointer"><p className='text-white p-2'>Erstellen</p></div>
                     
           </form>
+
+          <div>
+          <p className="mt-4">Du hast schon einen Account?</p>
+          <Link
+            href="/auth/login"
+            className="mt-4"
+          >
+            <p className="p-2">Login</p>
+          </Link>
+        </div>
         </div>
         
    
@@ -88,10 +100,26 @@ function Registrieren() {
 
 export default Registrieren
 
-Registrieren.getLayout = function PageLayout(page){
-	return(
-		<>
-		{page}
-		</>
-    )
-}
+Registrieren.getLayout = function PageLayout(page) {
+  return (
+    <>
+      <div className="h-16 flex flex-row justify-between md:px-16 px-4 items-center text-black bg-white">
+        <div className="">
+          <p className="text-black font-bold text-xl">
+            <Link href="/">BleibFitKonstant</Link>
+          </p>
+        </div>
+
+        <nav className="flex space-x-6">
+          {/* <ul><Link href="/pricing">Konstenlos testen</Link></ul> */}
+          {/* <ul><Link href="/pricing">Preise</Link></ul> */}
+          {/* <ul>
+            <Link href="/login" className=''>Login</Link>
+          </ul> */}
+        </nav>
+        
+      </div>
+      {page}
+    </>
+  );
+};

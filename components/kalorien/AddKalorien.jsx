@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import UserContext from '../UserContext';
+import Button2 from '../Button2.jsx'
 
 function AddKalorien(props) {
     const {userContext, setUserContext} = useContext(UserContext);
@@ -110,13 +111,14 @@ function AddKalorien(props) {
   }
 
   return (
-    <div>
+    <div className='pt-8'>
         <form className="text-black flex flex-col md:flex-row w-[80%] mx-[10%]" action="/api/workouts" method="POST">
           <input onChange={handleChange} className="mt-2 rounded h-8 w-[100%]" type="date" name="date" placeholder='Date' value={date}></input>
           <input onChange={handleChange} className="mt-2 rounded h-8 w-full" name="mahlzeit" placeholder='Meal' value={mahlzeit.mahlzeit}></input>
           <input onChange={handleChange} className="mt-2 rounded h-8 w-full" name="gewicht" placeholder='Gramm' value={mahlzeit.gewicht}></input>
           <input onChange={handleChange} className="mt-2 rounded h-8 w-full" name="kalorien" placeholder='Calories' value={mahlzeit.kalorien}></input>
-          <button onClick={handleSubmit} className="border-[1px] rounded mt-2 h-8 w-full bg-[#369623]"><p className='text-white'>Add</p></button>
+          {/* <button onClick={handleSubmit} className="border-[1px] rounded mt-2 h-8 w-full bg-[#369623] hover:cursor-pointer hover:translate-y-[-4px] hover:bg-[#2d7c1d] transition-all"><p className='text-white'>Add</p></button> */}
+          <Button2 text={"Add"} buttonAction={handleSubmit}/>
         </form>
     </div>
   )

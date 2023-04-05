@@ -60,7 +60,7 @@ function MapKalorien() {
     }
 
   return (
-    <div className='text-red flex flex-col mt-2'>
+    <div className='text-red flex flex-col mt-2 text-white'>
         {   //First we iterating through the date object and adding the header if the day exists, afterward we add we meals
             userContext ? userContext.kalorien ? userContext.kalorien.length > 0 ? userContext.kalorien.map((tag, index) => {
                 return (

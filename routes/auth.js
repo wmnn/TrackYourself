@@ -76,6 +76,7 @@ function routes(app) {
         var user = await User.findOne({
             email: req.body.email,
         })
+        console.log(user)
         if (!user) {
             return res.json({ status: 400}) //wenn kein User mit der Email gefunden wird:
         }
@@ -88,6 +89,7 @@ function routes(app) {
             req.body.password,
             user.password
         )
+        console.log(isPasswordValid)
 
         if(isPasswordValid == true){
             const token = generateJWT(user);
@@ -113,7 +115,6 @@ function routes(app) {
     router.post('/register', async function(req,res){
 
         try {
-            console.log(req.body)
             //create a hashed password in order to not save the real password
             const newPassword = await bcrypt.hash(req.body.password, 10)
 
@@ -176,13 +177,23 @@ function routes(app) {
     router.get("/google/callback", passport.authenticate("google", {
         failureRedirect: "/login/failed",
         session: false,
-        }), (req, res) => {
+        }), (req, res) => { //THIS FUNCTION IS ONLY AVAILABLE IF YOU DON'T USE EXPRESS-SESSION
         //console.log(req.user)
         const token = generateJWT(req.user);
         res.cookie('x-auth-cookie', token);
-        res.redirect(`${process.env.CLIENT_URL}`);
+        res.redirect('/auth/google/success')
+        //res.redirect(`${process.env.CLIENT_URL}`);
         }
     );
+
+    // //IF YOU USE EXPRESS-SESSION
+    // router.get("/google/callback", passport.authenticate("google", {
+    //     successRedirect: '/google/success',
+    //     failureRedirect: '/google/failure'
+    // }));
+    router.get("/google/success", (req,res) => {
+        res.send("SUCCESS");
+    });
 
     router.post("/access", async function(req, res){
     

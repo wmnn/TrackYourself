@@ -25,12 +25,6 @@ function verifyToken(req, res){
 }
 
 function routes(app) {
-
-    // router.post("/waitlist", async (req,res) => {
-    //     await Waitlist.create({email: req.body.email});
-    //     res.json({status: 200})
-    // })
-    
     router.get("/user", async (req,res) => {
       const userData = verifyToken(req, res);
 
@@ -456,6 +450,9 @@ function routes(app) {
         const userData = verifyToken(req, res);
 
         if(userData){
+            if (userData.email == "test@test.com"){
+                return res.json({status: 403})
+            }
             await User.deleteOne({"email": userData.email}, function(err) {
                 if(err){
                     res.json({status: 400}) 

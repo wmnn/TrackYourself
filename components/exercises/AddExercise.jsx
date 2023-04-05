@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import UserContext from '../UserContext';
+import Button2 from '../Button2.jsx'
 
 function AddExercise(props) {
     const {userContext, setUserContext} = useContext(UserContext);
@@ -124,7 +125,7 @@ function AddExercise(props) {
   }
   
   return (
-    <div>
+    <div className='pt-8'>
         <form className="text-black flex flex-col md:flex-row w-[80%] mx-[10%]" action="/api/workouts" method="POST">
           <input onChange={handleChange} className="mt-2 rounded h-8 w-full" type="date" name="date" placeholder='Date' value={date}></input>
           <input onChange={handleChange} className="mt-2 rounded h-8 w-full" name="exercise" placeholder='Exercise' value={newWorkout.exercise}></input>
@@ -132,7 +133,8 @@ function AddExercise(props) {
           <input onChange={handleChange} className="mt-2 rounded h-8 w-full" name="reps" placeholder='Reps' value={newWorkout.reps}></input>
           {/* <input onChange={handleChange} className="mt-2 rounded h-8 w-full" name="weight" placeholder='Weight' value={newWorkout.weight}></input> */}
           <input onChange={handleChange} className="mt-2 rounded h-8 w-full"name="duration" placeholder='Duration in min' value={newWorkout.duration}></input>
-          <button onClick={handleSubmit} className="border-[1px] rounded mt-2 h-8 w-full bg-[#369623] mb-2"><p className='text-white'>Add</p></button>
+          {/* <button onClick={handleSubmit} className="border-[1px] rounded mt-2 h-8 w-full bg-[#369623] mb-2 hover:cursor-pointer hover:translate-y-[-4px] hover:bg-[#2d7c1d] transition-all"><p className='text-white'>Add</p></button> */}
+          <Button2 text={"Add"} buttonAction={handleSubmit}/>
         </form>
     </div>
   )

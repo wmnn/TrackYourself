@@ -38,14 +38,14 @@ const UserSchema = new mongoose.Schema(
 
 	  ],
 	  
-	  defaultWorkoutList: [
-		{	
-			_id: false,
-			exercise: {type: String},
-			checked: {type:Boolean, default: false},
-			id: {type:String, required: true, unique: true}
-		}
-	  ],
+	//   defaultWorkoutList: [
+	// 	{	
+	// 		_id: false,
+	// 		exercise: {type: String},
+	// 		checked: {type:Boolean, default: false},
+	// 		id: {type:String, required: true, unique: true}
+	// 	}
+	//   ],
 	  workoutsList: [
 		{	
 			year: {type: Number},

@@ -2,6 +2,7 @@ import React, {useState, useContext, useEffect} from 'react'
 import UserContext from '../components/UserContext';
 import {DataPopup, DeletePopup} from '../components/settings'
 import { useRouter } from "next/router";
+import Button from '../components/Button';
 
 function Settings() {
     const router = useRouter()
@@ -61,17 +62,18 @@ function Settings() {
     }
 
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen text-white flex justify-center flex-col space-y-16 items-center'>
     
         {dataPopup === true ? <DataPopup data="Wir senden dir deine Daten" setDataPopup={setDataPopup} cbFunction={() => setDataPopup((prev) => !prev)}/>: ""}
         {deletePopup === true ? <DeletePopup data="Willst du deinen Account wirklich löschen?" cbFunction={() => setDeletePopup((prev) => !prev)}/>: ""}
 
         
-        <div className='flex justify-center'>
+        <div className='flex justify-center items-center'>
             <input type="checkbox" className='w-4 mr-2' onChange={handleClick} value={confirmed} checked={confirmed}/><p>Ich will Emails bekommen</p>
         </div>
-        <button className='border-[1px] rounded p-2' onClick={() => {setDataPopup((prev) => !prev)}}>Ich will meine gespeicherten Daten</button>
-        <div><button className='bg-red-700 border-[1px] rounded p-2' onClick={() => setDeletePopup((prev) => !prev)}>Account löschen</button></div>
+        <Button text={"Ich will meine gespeicherten Daten"} buttonAction={() => {setDataPopup((prev) => !prev)}} />
+        {/* <button className='border-[1px] rounded p-2' onClick={() => {setDataPopup((prev) => !prev)}}>Ich will meine gespeicherten Daten</button> */}
+        <div><button className='bg-red-700 rounded p-2' onClick={() => setDeletePopup((prev) => !prev)}>Account löschen</button></div>
     
     
     </div>

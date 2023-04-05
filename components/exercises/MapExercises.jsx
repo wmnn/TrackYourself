@@ -58,7 +58,7 @@ function MapExercises(props) {
     }
 
   return (
-    <div>
+    <div className='text-white'>
      
       { userContext? userContext.workouts ? userContext.workouts.length > 0 ? userContext.workouts.map((workout, index) => {
           return (
