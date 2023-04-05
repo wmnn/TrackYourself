@@ -1,0 +1,6 @@
+[submodule "TrackYourself-ReactWebApp"]
+	path = TrackYourself-ReactWebApp
+	url = https://github.com/wmnn/TrackYourself-ReactWebApp.git
+[submodule "TrackYourself-ReactNativeApp"]
+	path = TrackYourself-ReactNativeApp
+	url = https://github.com/wmnn/TrackYourself-ReactNativeApp.git
