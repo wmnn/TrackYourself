@@ -1,7 +1,7 @@
 //@ts-nocheck
 const passport = require('passport'); //OAuth
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const User = require('../models/userdata.model.js')
+const User = require('../models/userdata.model')
 //import User from '../models/User';
 
 const googleLoginStrategy = new GoogleStrategy(

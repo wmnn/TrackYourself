@@ -103,7 +103,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "models/userdata.model.js"  ],
   "exclude": [
     "node_modules"
   ]

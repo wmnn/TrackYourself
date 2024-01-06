@@ -117,7 +117,10 @@ function routes(app) {
 
         try {
             //create a hashed password in order to not save the real password
+            console.log('Hello World')
             const newPassword = await bcrypt.hash(req.body.password, 10)
+          
+            console.log(req.body.email + ' ' + newPassword)
 
             //Check if user exists
             // const UserData = await User.findOne({email: req.body.email})
@@ -126,26 +129,25 @@ function routes(app) {
             // 	return res.json({status: 400})
             // }
 
+            
             //Creating a new User through the Users model
             await User.create({
                 provider: 'register-form',
                 email: req.body.email,
                 password: newPassword,
             })
-            const emailToken = jwt.sign(
-                {
-                    email: req.body.email,
-                }, `${process.env.JWT_KEY}`
-            );
+            const emailToken = jwt.sign({
+                email: req.body.email,
+            }, `${process.env.JWT_KEY}`);
+
             const url = `${process.env.CLIENT_URL}/auth/confirmation/${emailToken}`
-            sendEmail(req.body.email, url);
+            //sendEmail(req.body.email, url);
 
             return res.json({status: 200});
 
         } catch (err) {
             console.log(err)
             res.json({ status: 'error', error: 'Something went wrong...' })
-
         }
     })
     router.get('/confirmation/:token', async function(req,res){
@@ -225,7 +227,7 @@ function routes(app) {
     })
     
     router.get("/logout", function(req, res){
-        res.cookie('x-auth-cookie', {expires: Date.now()});
+        res.cookie('x-auth-cookie', { expires: Date.now() });
         res.status(202).redirect(`${process.env.CLIENT_URL}`);
     })
 

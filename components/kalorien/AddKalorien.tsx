@@ -1,6 +1,7 @@
+//@ts-nocheck
 import React, {useState, useContext} from 'react'
 import UserContext from '../UserContext';
-import Button2 from '../Button2.jsx'
+import Button2 from '../Button2'
 
 function AddKalorien(props) {
     const {userContext, setUserContext} = useContext(UserContext);

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import {useContext, useEffect} from 'react'
 import UserContext from '../components/UserContext';
 import { useRouter } from "next/router";
