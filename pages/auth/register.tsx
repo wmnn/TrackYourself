@@ -1,10 +1,9 @@
+//@ts-nocheck
+
 import React, {useState} from 'react'
 import Popup from '../../components/Popup';
 import { useRouter } from "next/router";
 import Link from 'next/link'
-
-
-
 
 
 function Registrieren() {
