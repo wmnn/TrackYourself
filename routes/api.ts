@@ -1,10 +1,11 @@
+//@ts-nocheck
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-const User = require('../models/userdata.model.js')
-const Waitlist = require('../models/waitlist.model.js')
+const User = require('../models/userdata.model')
+const Waitlist = require('../models/waitlist.model')
 const nodemailer = require('nodemailer');
-const { userDataEmail } = require("../functions/emails/userDataEmail.js");
+const { userDataEmail } = require("../functions/emails/userDataEmail");
 
 function verifyToken(req, res){
     var token;

@@ -1,3 +1,4 @@
+//@ts-nocheck
 const schedule = require('node-schedule')
 const User = require('../../../models/userdata.model.js');
 const { sendMail } = require('./sendMail.js');

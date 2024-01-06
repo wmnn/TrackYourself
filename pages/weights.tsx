@@ -1,6 +1,7 @@
+//@ts-nocheck
 import React from 'react'
-import {MapWeights, AddWeight} from '../components/weights/';
-import {handleContext} from '../functions/handleContext';
+import {MapWeights, AddWeight} from '../components/weights';
+import { handleContext } from '../functions/handleContext';
 
 
 function Weights() {

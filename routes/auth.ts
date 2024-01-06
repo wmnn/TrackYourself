@@ -1,11 +1,11 @@
+//@ts-nocheck
 const router = require("express").Router();
 const passport = require("passport");
 const cookieParser = require('cookie-parser');
 const jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
-const User = require('../models/userdata.model.js');
-// const { sendEmailScript } = require("../functions_and_services/dailyEmail/sendEmail.js");
-const { sendEmail } = require("../functions/emails/confirmationEmail/confirmationEmail.js");
+const User = require('../models/userdata.model');
+const { sendEmail } = require("../functions/emails/confirmationEmail/confirmationEmail");
 require('dotenv').config()
 
 function routes(app) {
@@ -24,6 +24,7 @@ function routes(app) {
     function handleUserData(user){
         //HANDLE NEW WEEK
         const year = new Date().getFullYear()
+        //@ts-ignore
         var days = Math.floor((new Date() - new Date(year, 0, 1)) / (24 * 60 * 60 * 1000));
         var week = Math.ceil(days / 7);
 

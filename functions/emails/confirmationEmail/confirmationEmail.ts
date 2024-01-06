@@ -1,3 +1,4 @@
+//@ts-nocheck
 function sendEmail(recipient, link){
 
     const nodemailer = require("nodemailer")

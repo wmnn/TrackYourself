@@ -1,3 +1,4 @@
+//@ts-nocheck
 const express = require("express");
 const next = require("next");
 const cookieParser = require('cookie-parser');
@@ -11,8 +12,8 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-require('./functions/mongoose.js'); //INIT DB
-require('./functions/googleStrategy.js'); //GOOGLE STRATEGY
+require('./functions/mongoose.ts'); //INIT DB
+require('./functions/googleStrategy.ts'); //GOOGLE STRATEGY
 //require("./functions/emails/dailyEmail/CronJob.js"); //Daily Email CronJob
 
 app
@@ -29,8 +30,8 @@ app
         handle(req, res);
     });
 
-    const showRoutes = require("./routes/api.js");
-    const authRoutes = require("./routes/auth.js")
+    const showRoutes = require("./routes/api.ts");
+    const authRoutes = require("./routes/auth.ts")
 
     server.use("/api", showRoutes(server));
     server.use("/auth", authRoutes(server));

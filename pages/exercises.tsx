@@ -1,6 +1,7 @@
+//@ts-nocheck
 import React from 'react'
 import { AddExercise, MapExercises } from '../components/exercises'
-import {handleContext} from '../functions/handleContext';
+import { handleContext } from '../functions/handleContext';
 
 function Exercises() {
   handleContext();

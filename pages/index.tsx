@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Check from "../components/pricing/Check";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
-import { Exercises, Meals, Weights, Stretching, Email } from "../assets/index";
-import ListItem from "../components/pricing/ListItem";
 import Button from "../components/Button";
 
 function Index() {
@@ -185,8 +182,6 @@ function Index() {
   );
 }
 
-export default Index;
-
 Index.getLayout = function PageLayout(page) {
   return (
     <>
@@ -207,3 +202,5 @@ Index.getLayout = function PageLayout(page) {
     </>
   );
 };
+
+export default Index;

@@ -1,3 +1,4 @@
+//@ts-nocheck
 const nodemailer = require('nodemailer');
 
 function sendMail(date, dateLastWeek, recipient_email, weightLastWeek, weightToday, workoutLastWeek, workoutToday, kalorienLastWeek, kalorienToday){
